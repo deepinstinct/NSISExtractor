@@ -23,7 +23,7 @@ def main():
 	# Execute the extractor for all files and check if the output file were created
 	files_list = [f for f in listdir(out_path) if isfile(join(out_path, f))]
 	for file_name in files_list:
-		subprocess.call(EXTRACTOR_LOCATION + " \"" + join(out_path, file_name) + "\" \"" + file_name + "\" \"" + join(out_path, "out.out") + "\"")
+		subprocess.call(EXTRACTOR_LOCATION + " \"" + join(out_path, file_name) + "\" \"" + file_name + "\" \"" + join(out_path, "ransomware.exe_do_not_execute") + "\"")
 		if exists(join(out_path, "out.out")):
 			break
 
