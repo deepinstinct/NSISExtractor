@@ -136,6 +136,10 @@ PBYTE ExtractDataAndDecrypt(PBYTE codeContent, LPWSTR encKey, DWORD encKeyLenInB
 		goto end;
 	}
 
+	if ((DWORD)details.beginningOfEncryptedData - (DWORD)codeContent + details.encryptedContentSize > fileSize) {
+		goto end;
+	}
+
 	CopyMemory(encryptedContent, details.beginningOfEncryptedData, details.encryptedContentSize);
 
 	decryptedContent = DecryptContent(encryptedContent, details.encryptedContentSize, (PBYTE)encKey, encKeyLenInBytes - 1);
